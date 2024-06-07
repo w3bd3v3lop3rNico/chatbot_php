@@ -34,6 +34,22 @@ createApp({
                 this.newMes = '';
             })
         },
+        deleteMessage() {
+            const data = {
+                id: index
+            }
 
-    }
-})
+            axios.post('delete.php', data, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                }
+            }).then((res)=> {
+                this.todos = res.data.results
+            })
+        }
+
+    },
+    created() {
+        this.fetchData()
+    }, 
+}).mount('#app')
