@@ -10,7 +10,7 @@ createApp({
     methods: {
         fetchData() {
             axios.get('getdata.php').then((res) => {
-                console.log(res.data);
+                console.log(res.data.results);
                 this.messages = res.data.results;
             })
         },

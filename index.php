@@ -21,23 +21,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
-<body id="chatbot">
-    <section class="container"> 
+<body >
+    <section id="app"> 
         <h4>D-One Chatbot</h4>
-        <div class="chat">
+        <ul class="chat">
+            <li class="message" v-for="(msg, idx) in messages" :key="idx">
+                <span @click="deleteMessage(idx)"></span>
+                
+            </li>
+        </ul>
+        <input type="text" placeholder="Scrivi un messaggio" v-model="newMes" @keyup.enter="addMessage">
 
-        </div>
-        <form action="write.php" method="POST">
-            <input type="text" placeholder="Inserisci il testo" name="text">
-            <input type="e-mail" placeholder="Utente" name="user">
-            <button type="submit" class="submit-btn">Send</button>
-        </form>
 
     </section>
-    <script src="./app.js"></script>
+    <script src="./js/app.js"></script>
 </body>
+
 </html>
